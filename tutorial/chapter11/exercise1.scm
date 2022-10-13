@@ -1,0 +1,18 @@
+(define title-style
+    (lambda (string)
+        (let loop((ls (string->list string)) (ls1 '()) (cap 1))
+            (if (null? ls)
+                (list->string (reverse ls1))
+                (if (eqv? (car ls) #\Space)
+                    (loop (cdr ls) (cons #\Space ls1) 1)
+                    (if (= 1 cap)
+                        (loop(cdr ls)(cons (char-upcase (car ls)) ls1) 0)
+                        (loop(cdr ls)(cons (car ls) ls1) 0)
+                    )
+                )
+            )
+        )
+    )
+)
+
+(title-style "the cathedral and the bazaar")
