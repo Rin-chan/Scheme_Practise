@@ -1,4 +1,4 @@
-# Scheme Practise
+# Scheme_Practise
 Learning and practising Scheme language.
 <br>
 This repository is used as a storage for anything related to Scheme.
