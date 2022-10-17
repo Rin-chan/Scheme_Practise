@@ -1,0 +1,18 @@
+(define smallestValue
+    (lambda (curList)
+        (if (null? curList)
+            (list 0)
+            (let loop ((curList1 curList) (smallValue 0))
+                (if (null? curList1)
+                    (list smallValue)
+                    (if (< (car curList1) smallValue)
+                        (loop (cdr curList1) (car curList1))
+                        (loop (cdr curList1) smallValue)
+                    )
+                )
+            )
+        )
+    )
+)
+
+(smallestValue (list 4 -2 6 1 -8 2))

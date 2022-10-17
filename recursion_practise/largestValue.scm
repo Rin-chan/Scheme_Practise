@@ -1,0 +1,18 @@
+(define largestValue
+    (lambda (curList)
+        (if (null? curList)
+            (list 0)
+            (let loop ((curList1 curList) (highestValue 0))
+                (if (null? curList1)
+                    (list highestValue)
+                    (if (> (car curList1) highestValue)
+                        (loop (cdr curList1) (car curList1))
+                        (loop (cdr curList1) highestValue)
+                    )
+                )
+            )
+        )
+    )
+)
+
+(largestValue (list 4 -2 6 1 -8))
