@@ -1,0 +1,45 @@
+(define lastOfList
+    (lambda (newList)
+        (if (null? (cdr newList))
+            newList
+            (lastOfList (cdr newList))
+        )
+    )
+)
+
+(define removeLastFromList
+    (lambda (newList)
+        (if (null? (cdr newList))
+            '()
+            (cons (car newList) (removeLastFromList (cdr newList)))
+        )
+    )
+)
+
+(define isPalindrome
+    (lambda (strings)
+        (let list1 ((list2 (string->list strings)))
+            (let loop ((list3 list2))
+                (if (null? list3)
+                    (list "True")
+                    (if (null? (cdr list3))
+                        (list "True")
+                        (if (eqv? (car list3) (car (lastOfList list3)))
+                            (loop (cdr (removeLastFromList list3)))
+                            (list "False")
+                        )
+                    )
+                )
+            )
+        )
+    )
+)
+
+(isPalindrome "")
+(isPalindrome "A")
+
+(isPalindrome "Hello")
+(isPalindrome "Nonon")
+(isPalindrome "nonon")
+(isPalindrome "LOLOL")
+(isPalindrome "SEES")
